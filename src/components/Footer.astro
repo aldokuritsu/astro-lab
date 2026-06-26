@@ -4,13 +4,85 @@ import Social from "./Social.astro";
 
 <style>
     footer {
+        margin-top: 2rem;
+        padding: 2rem 0;
+        border-top: 1px solid #cbd5e1;
+    }
+
+    .footer-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-column h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.1rem;
+        color: #0d0950;
+    }
+
+    .footer-column ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-column li {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-column a {
+        color: #4c1d95;
+        text-decoration: none;
+    }
+
+    .footer-column a:hover,
+    .footer-column a:focus {
+        text-decoration: underline;
+    }
+
+    .footer-column p {
+        margin: 0;
+        color: #475569;
+    }
+
+    .footer-social {
         display: flex;
         gap: 1rem;
-        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: 636px) {
+        .footer-columns {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>
+
 <footer>
-    <Social platform="twitter" username="astrodotbuild" />
-    <Social platform="github" username="withastro" />
-    <Social platform="youtube" username="astrodotbuild" />
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h3>À propos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Placeholder de description du site.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Liens</h3>
+            <ul>
+                <li><a href="#">Lien un</a></li>
+                <li><a href="#">Lien deux</a></li>
+                <li><a href="#">Lien trois</a></li>
+                <li><a href="#">Lien quatre</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Suivez-nous</h3>
+            <div class="footer-social">
+                <Social platform="twitter" username="astrodotbuild" />
+                <Social platform="github" username="withastro" />
+                <Social platform="youtube" username="astrodotbuild" />
+            </div>
+        </div>
+    </div>
 </footer>
